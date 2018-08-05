@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserDetailsService {
 
     @Override
-    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(final String userId) throws UsernameNotFoundException {
         return new User("testing@example.com", "$2a$10$a65XF01UMzCmy6SM.Sz/WOm0htoi/JP8g48xKa2A9wh96ZjGjb2tW",
                 getAuthority());
     }

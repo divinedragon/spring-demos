@@ -49,7 +49,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     }
 
     @Override
-    public void configure(ClientDetailsServiceConfigurer configurer) throws Exception {
+    public void configure(final ClientDetailsServiceConfigurer configurer) throws Exception {
         //F-
         configurer.inMemory()
                       .withClient("client-id")
@@ -62,7 +62,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     }
 
     @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+    public void configure(final AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         //F-
         endpoints.tokenStore(tokenStore)
                  .authenticationManager(authenticationManager)

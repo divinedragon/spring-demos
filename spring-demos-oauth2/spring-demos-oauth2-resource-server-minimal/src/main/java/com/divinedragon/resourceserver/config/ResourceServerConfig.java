@@ -7,7 +7,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
-import org.springframework.security.oauth2.provider.token.AccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
 @Configuration
@@ -19,7 +18,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     private final TokenStore tokenStore;
 
     @Autowired
-    public ResourceServerConfig(final AccessTokenConverter accessTokenConverter, final TokenStore tokenStore) {
+    public ResourceServerConfig(final TokenStore tokenStore) {
         this.tokenStore = tokenStore;
     }
 
@@ -34,7 +33,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http
             .anonymous().disable()
             .authorizeRequests()
-                .antMatchers("/users/**").access("hasRole('ADMIN')")
+                .antMatchers("/api/**").access("hasRole('ADMIN')")
             .and()
             .exceptionHandling()
                 .accessDeniedHandler(new OAuth2AccessDeniedHandler())

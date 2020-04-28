@@ -16,7 +16,7 @@
     <name>spring-demos-oauth2</name>
 
     <properties>
-        <spring-security-oauth2.version>2.0.0.RELEASE</spring-security-oauth2.version>
+        <spring-security-oauth2.version>2.2.6.RELEASE</spring-security-oauth2.version>
     </properties>
 
     <modules>
